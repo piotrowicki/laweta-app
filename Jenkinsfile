@@ -9,9 +9,12 @@ pipeline {
                 git branch: 'master', url: 'https://github.com/piotrowicki/laweta-app.git'
             }
         }
-        stage('Package') {
+        stage('Build application') {
+            tools {
+                maven 'Maven 3.6.3'
+            }
             steps {
-                sh 'maven package'
+                sh 'mvn package'
             }
         }
     }
