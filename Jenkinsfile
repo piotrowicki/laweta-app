@@ -15,7 +15,7 @@ pipeline {
                 jdk 'openjdk-11'
             }
             steps {
-                sh 'mvn package'
+                sh 'mvn clean compile package'
             }
         }
         stage('Build image') {
