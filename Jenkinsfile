@@ -17,5 +17,10 @@ pipeline {
                 sh 'mvn package'
             }
         }
+        stage('Build image') {
+            steps {
+                sh 'docker build -f src/main/docker/Dockerfile.jvm -t ${IMAGE_NAME} .'
+            }
+        }
     }
 }
