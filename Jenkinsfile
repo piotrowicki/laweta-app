@@ -12,6 +12,7 @@ pipeline {
         stage('Build application') {
             tools {
                 maven 'Maven 3.6.3'
+                jdk 'openjdk-11'
             }
             steps {
                 sh 'mvn package'
