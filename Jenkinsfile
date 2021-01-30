@@ -9,5 +9,10 @@ pipeline {
                 git branch: 'master', url: 'https://github.com/piotrowicki/laweta-app.git'
             }
         }
+        stage('Package') {
+            steps {
+                sh 'mvn package'
+            }
+        }
     }
 }
