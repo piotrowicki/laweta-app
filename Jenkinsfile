@@ -1,5 +1,9 @@
 pipeline {
     agent any
+    tools {
+        maven 'Maven 3.6.3'
+        jdk 'openjdk-11'
+    }
     environment {
         IMAGE_NAME = 'laweta-app-image'
     }
@@ -10,10 +14,6 @@ pipeline {
             }
         }
         stage('Build application') {
-            tools {
-                maven 'Maven 3.6.3'
-                jdk 'openjdk-11'
-            }
             steps {
                 sh 'mvn clean compile package'
             }
