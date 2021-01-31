@@ -15,7 +15,7 @@ pipeline {
         }
         stage('Build application') {
             steps {
-                sh 'mvn clean compile package'
+                sh 'JAVA_HOME=${openjdk-11} && mvn clean compile package'
             }
         }
         stage('Build image') {
