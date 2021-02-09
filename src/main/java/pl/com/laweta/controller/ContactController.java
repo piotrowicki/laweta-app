@@ -32,7 +32,8 @@ public class ContactController {
 
     @POST
     @Path("/send")
-    public Response sendEmail(@RequestBody MailDto mailDto) {
+    public Response sendEmail(@RequestBody MailDto mail) {
+        mailService.sendEmail(mail);
         return Response.ok().build();
     }
 }
