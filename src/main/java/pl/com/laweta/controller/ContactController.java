@@ -11,17 +11,17 @@ import javax.ws.rs.core.Response;
 import org.eclipse.microprofile.openapi.annotations.parameters.RequestBody;
 
 import pl.com.laweta.dto.MailDto;
-import pl.com.laweta.service.MailService;
+import pl.com.laweta.service.ContactService;
 
 @Path("/api")
 @Produces(MediaType.APPLICATION_JSON)
 public class ContactController {
 
-    private final MailService mailService;
+    private final ContactService contactService;
 
     @Inject
-    public ContactController(MailService mailService) {
-        this.mailService = mailService;
+    public ContactController(ContactService contactService) {
+        this.contactService = contactService;
     }
 
     @GET
@@ -32,8 +32,8 @@ public class ContactController {
 
     @POST
     @Path("/send")
-    public Response sendEmail(@RequestBody MailDto mail) {
-        mailService.sendEmail(mail);
+    public Response sendEmail(@RequestBody MailDto mailDto) {
+        contactService.sendEmail(mailDto);
         return Response.ok().build();
     }
 }
