@@ -2,10 +2,17 @@ package pl.com.laweta.dto;
 
 import java.util.Objects;
 
+import javax.validation.constraints.NotBlank;
+
 public class MailDto {
 
+    @NotBlank
     private String email;
+
+    @NotBlank
     private String name;
+
+    @NotBlank
     private String text;
 
 
